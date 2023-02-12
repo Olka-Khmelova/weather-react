@@ -6,7 +6,7 @@
     font-size: 18px;
     text-align: center;
     color: #70757a;
-    max-width: 900px;
+    max-width: 700px;
     min-width: 500px;
     margin: 0 auto;
     padding: 12px;
@@ -42,12 +42,13 @@
   
   .Weather .current-time-item {
     display: inline-block;
-    margin: 25px;
+    margin: 20px 12px;
   }
   .Weather .btn-secondary {
     background-color: hsl(0, 0%, 90%);
     color: #84cdf7;
     border: none;
+    display: none;
   }
   .Weather .units {
     position: relative;
@@ -68,7 +69,8 @@
   .Weather .feels-temperature::after {
     content: "";
     display: block;
-    width: 180px;
+    width: 120px;
+    margin: 0 auto;
     border-top: 1px solid #ced4da;
   }
   .Weather .feels-unit {
@@ -83,11 +85,14 @@
     color: #000;
   }
   .Weather .city-form {
-    padding: 20px 0px 0px 35px;
+    padding: 20px 0px 0px 10px;
+  }
+  .form-control-sm {
+    width: 180px;
   }
   .Weather .weather-emoji {
-    width: 130px;
-    padding-top: 20px;
+    width: 100px;
+    margin: 20px;
   }
   
   .Weather .weather-descript {
@@ -114,7 +119,7 @@
     width: 200px;
     display: flex;
     justify-content: space-around;
-    padding: 40px 10px 0px;
+    padding: 60px 10px 0px;
     font-size: 14px;
   }
   .Weather .weather-item-accent {
@@ -126,10 +131,3 @@
     text-align: center;
     width: 370px;
   }
-  
-  @media (max-width: 875px) {
-    .btn-secondary {
-      display: none;
-    }
-  }
-  

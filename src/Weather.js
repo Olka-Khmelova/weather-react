@@ -25,6 +25,7 @@ export default function Weather() {
                   type="search"
                   className="form-control-sm"
                   placeholder="Enter your city"
+                  autoFocus="on"
                 />
               </div>
               <div className="col-auto">
@@ -48,7 +49,7 @@ export default function Weather() {
               </div>
             </form>
             <div className="row current-weather-container">
-              <div className="col-auto">
+              <div className="col-5">
                 <img
                   src={weatherData.imgUrl}
                   alt="weather emoji"
@@ -82,7 +83,7 @@ export default function Weather() {
                   </ul>
                 </div>
               </div>
-              <div className="col-auto current-weather">
+              <div className="col-7 current-weather">
                 <h1 className="current-city">{weatherData.city}</h1>
                 <div className="current-temperature">
                   <span>{weatherData.temperature}</span>
