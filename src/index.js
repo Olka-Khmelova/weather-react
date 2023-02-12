@@ -2,12 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Weather from "./Weather";
 import Footer from "./Footer";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <div className="WeatherApp">
+    <div className="WeatherApp container">
       <Weather />
       <Footer />
     </div>
