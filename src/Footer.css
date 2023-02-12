@@ -1,0 +1,11 @@
+.Footer {
+    text-align: center;
+  }
+  .Footer .footer-item {
+    display: inline-block;
+    margin: 10px 20px 0px 0px;
+    font-size: 12px;
+  }
+  .Footer .footer-link:hover {
+    text-decoration: underline;
+  }
