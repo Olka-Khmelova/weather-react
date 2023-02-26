@@ -18,8 +18,10 @@ export default function formatedDate(props) {
         return String(num).padStart(2, "0");
       }
     return (
-        <div>
-            {day} {hours}:{minutes}
-        </div>
+        <ul className="current-time-list list">
+                  <li className="current-time-item">today</li>
+                  <li className="current-time-item">{day}</li>
+                  <li className="current-time-item">{hours}:{minutes}</li>
+                </ul>
     )
 }

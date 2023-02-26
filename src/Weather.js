@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import FormatedDate from "./FormatedDate";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 import "./Weather.css";
 
 export default function Weather(props) {
@@ -10,7 +11,7 @@ export default function Weather(props) {
   function handleResponse(response) {
     setWetherData({
       ready: true,
-      // coordinates: response.data.coordinates,
+      coordinates: response.data.coordinates,
       temperature: Math.floor(response.data.temperature.current),
       humidity: response.data.temperature.humidity,
       date: new Date(response.data.time * 1000),
@@ -42,7 +43,7 @@ export default function Weather(props) {
         <div className="Weather">
           <div className="main-container">
             <div className="row">
-              <div className="col-6 left-side-container">
+              <div className="col-5 left-side-container">
                 <form className="row g-3 city-form" onSubmit={handleSubmit}>
                   <div className="col-auto">
                     <input
@@ -58,7 +59,7 @@ export default function Weather(props) {
                       type="submit"
                       className="btn btn-primary mb-3 btn-sm change-city-button"
                     >
-                      Change city
+                      Search
                     </button>
                   </div>
                   <div className="col-auto">
@@ -76,11 +77,10 @@ export default function Weather(props) {
                 <WeatherInfo data={weatherData}/>
               </div>
               <div className=" col-6 future-weather-container">
-                <ul className="current-time-list list">
-                  <li className="current-time-item">today</li>
-                  <li className="current-time-item"><FormatedDate date={weatherData.date}/></li>
-                  <li className="current-time-item">{weatherData.time}</li>
-                </ul>
+              <FormatedDate date={weatherData.date}/>
+                <div className="weather-forecast" >
+                <WeatherForecast coordinates={weatherData.coordinates}/>
+              </div>
               </div>
             </div>
           </div>
