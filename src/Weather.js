@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import FormatedDate from "./FormatedDate";
+import WeatherInfo from "./WeatherInfo";
 import "./Weather.css";
 
 export default function Weather(props) {
@@ -15,7 +16,7 @@ export default function Weather(props) {
       date: new Date(response.data.time * 1000),
       description: response.data.condition.description,
       icon: response.data.condition.icon_url,
-      wind: response.data.wind.speed,
+      wind: Math.floor(response.data.wind.speed),
       city: response.data.city,
       feels: Math.floor(response.data.temperature.feels_like),
     })
@@ -72,56 +73,7 @@ export default function Weather(props) {
                     </button>
                   </div>
                 </form>
-                <div className="row current-weather-container">
-                  <div className="col-5">
-                    <img
-                      src=""
-                      alt={weatherData.description}
-                      className="weather-emoji"
-                    />
-                    <div className="weather-details">
-                      <ul className="weather-list list">
-                        <li className="weather-item">
-                          <span role="img" aria-label="water drop">
-                            💧
-                          </span>
-                          <br />
-                          Humidity <br />
-                          <span className="weather-item-accent">
-                            {weatherData.humidity}
-                          </span>{" "}
-                          %
-                        </li>
-                        <li className="weather-item">
-                          <span role="img" aria-label="wind">
-                            💨
-                          </span>
-                          <br />
-                          Wind speed <br />
-                          <span className="weather-item-accent">
-                            {" "}
-                            {weatherData.wind}
-                          </span>{" "}
-                          m/h
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="col-7 current-weather">
-                    <h1 className="current-city">{weatherData.city}</h1>
-                    <div className="current-temperature">
-                      <span>{weatherData.temperature}</span>
-                      <span className="tempterute-unit units"> °C</span>
-                    </div>
-                    <p className="feels-temperature">
-                      feels like 
-                      <span className="feels-temperature-accent"> {weatherData.feels}
-                      </span>
-                      <span className="feels-unit"> °C</span>
-                    </p>
-                    <p className="weather-descript">{weatherData.description}</p>
-                  </div>
-                </div>
+                <WeatherInfo data={weatherData}/>
               </div>
               <div className=" col-6 future-weather-container">
                 <ul className="current-time-list list">
