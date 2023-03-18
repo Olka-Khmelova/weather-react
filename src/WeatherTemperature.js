@@ -5,10 +5,13 @@ export default function WeatherTemperature(props) {
     function convertToFarenh(event) {
         event.preventDefault();
         setUnit('fahrenheit');
+        props.updateUnit("fahrenheit");
+
     }
     function convertToCelsius(event) {
         event.preventDefault();
         setUnit('celsius');
+        props.updateUnit("celsius");
     }
     if(unit === 'celsius') {
         return(

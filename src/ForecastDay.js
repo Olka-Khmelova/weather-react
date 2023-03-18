@@ -1,15 +1,26 @@
 import React from "react";
 
 export default function ForecastDay(props) {
+
+  function convertToFahrenheit(temp) {
+    let fahrenheit = Math.floor((temp * 9) / 5 + 32);
+    return fahrenheit;
+  }
+
     function maxTemperature() {
-        let temperature = Math.round(props.data.temperature.maximum);
+      let temperature =
+      props.unit === "celsius"
+        ? Math.round(props.data.temperature.maximum)
+        : convertToFahrenheit(props.data.temperature.maximum);
         return temperature;
-        
-      }
+  };
     
       function minTemperature() {
-        let temperature = Math.round(props.data.temperature.minimum);
-        return temperature;
+        let temperature =
+        props.unit === "celsius"
+          ? Math.round(props.data.temperature.minimum)
+          : convertToFahrenheit(props.data.temperature.minimum);
+          return temperature;
       }
     
       function day() {

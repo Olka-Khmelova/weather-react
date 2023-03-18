@@ -8,6 +8,13 @@ import "./Weather.css";
 export default function Weather(props) {
   const [weatherData, setWetherData] = useState({ready: false});
   const [city, setCity] = useState(props.defaultCity);
+  const [unit, setUnit] = useState("celsius");
+
+  const updateUnit = (unit) => {
+    console.log("wow")
+    setUnit(unit);
+  };
+
   function handleResponse(response) {
     setWetherData({
       ready: true,
@@ -74,12 +81,12 @@ export default function Weather(props) {
                     </button>
                   </div>
                 </form>
-                <WeatherInfo data={weatherData}/>
+                <WeatherInfo data={weatherData} onclick={updateUnit} updateUnit={updateUnit}/>
               </div>
               <div className=" col-6 future-weather-container">
               <FormatedDate date={weatherData.date}/>
                 <div className="weather-forecast" >
-                <WeatherForecast coordinates={weatherData.coordinates}/>
+                <WeatherForecast coordinates={weatherData.coordinates} unit={unit}/>
               </div>
               </div>
             </div>
