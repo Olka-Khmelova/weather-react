@@ -9,7 +9,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <div className="WeatherApp container">
-      <Weather defaultCity='Kyiv'/>
+      <Weather />
       <Footer />
     </div>
   </React.StrictMode>

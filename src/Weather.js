@@ -13,7 +13,7 @@ export default function Weather(props) {
   const updateUnit = (unit) => {
     console.log("wow")
     setUnit(unit);
-  };
+  };   
 
   function handleResponse(response) {
     setWetherData({
@@ -39,11 +39,26 @@ export default function Weather(props) {
     setCity(event.target.value);
   }
 
+  function getPosition(position) {
+    let latitude = position.coords.latitude ;
+    let longitude = position.coords.longitude;
+    let units = "metric";
+    let apiKey = "co401f652fba6d208a8a8a0f33tcf3dd";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=${units}`;
+    axios.get(`${apiUrl}`).then(handleResponse);
+    console.log(`${apiUrl}`)
+  }
+  
+  function currentCity() {
+    navigator.geolocation.getCurrentPosition(getPosition);
+  }
+
   function search() {
     let apiKey = "co401f652fba6d208a8a8a0f33tcf3dd";
     let units = "metric";
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}`;
     axios.get(`${apiUrl}&key=${apiKey}&units=${units}`).then(handleResponse);
+    console.log(`${apiUrl}&key=${apiKey}&units=${units}`)
   }
   if(weatherData.ready) {
     return (
@@ -94,7 +109,7 @@ export default function Weather(props) {
         </div>
       );
 }else {
-  search();
+  currentCity()
   return "Loading...";
   }
 }

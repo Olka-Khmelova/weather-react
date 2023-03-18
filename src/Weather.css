@@ -131,3 +131,33 @@
     text-align: center;
     width: 370px;
   }
+  @media screen and (max-width: 1000px) {
+  .Weather .city-form {
+    padding: 20px 0px 0px;
+  }
+  }
+@media screen and (max-width: 780px) {
+    .Weather .weather-forecast .col {
+      flex: none;
+      text-align: center;
+    }
+    .Weather .weather-forecast {
+        margin: 0px auto;
+        padding: 0px;
+        width: auto;
+
+    }
+    .Weather .weather-forecast {
+      padding: 0px;
+    }
+    .Weather .weather-item {
+      margin-top: 15px;
+    }
+    .Weather .weather-emoji {
+      margin: 20px 0px;
+    }
+    .Weather .current-weather {
+      padding: 0px;
+    }
+
+}
